@@ -11,6 +11,11 @@ class TasksController extends Controller
     {
         return Task::all();
     }
+    public function checkStat()
+    {
+        $taskStat=['all'=>10,'done'=>'1','todo'=>7];
+        return $taskStat;
+    }
     public function show(Task $task)
     {
         return $task;
@@ -27,10 +32,11 @@ class TasksController extends Controller
 
         return response()->json($task, 200);
     }
-    public function delete(Task $task)
+    public function delete($task_id)
     {
+        $task = Task::find($task_id);
         $task->delete();
+        return "Task record successfully deleted ";
 
-        return response()->json(null, 204);
     }
 }

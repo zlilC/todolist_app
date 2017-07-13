@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('tasks', 'TasksController@index');
+Route::get('tasks/status', 'TasksController@checkStat');
 Route::get('tasks/{task}', 'TasksController@show');
 Route::post('tasks', 'TasksController@store');
 Route::put('tasks/{task}', 'TasksController@update');

@@ -11,11 +11,7 @@ Use App\Task;
 |
 */
 
+Route::group(array('prefix' => 'api/v1'), function(){
+    Route::resource('tasks', 'TasksController');
+});
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(array('prefix' => 'api/v1'), function()
-{
-    Route::resource('tasks', 'tasksController');
-});
